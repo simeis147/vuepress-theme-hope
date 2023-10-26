@@ -1,10 +1,20 @@
-import { pageviewCount } from "@waline/client/dist/pageview.mjs";
+import type { WalineAbort, WalinePageviewCountOptions } from "@waline/client";
 
 import type { WalineOptions } from "../shared/index.js";
 
 declare const COMMENT_OPTIONS: WalineOptions;
 
+let pageviewCount: (options: WalinePageviewCountOptions) => WalineAbort;
+
+try {
+  ({ pageviewCount } = await import(
+    /* webpackChunkName: "pageview" */ "@waline/client/pageview"
+  ));
+} catch (err) {
+  // do nothing
+}
+
 export const updatePageview = (): (() => void) =>
-  pageviewCount({
+  pageviewCount?.({
     serverURL: COMMENT_OPTIONS.serverURL,
   });
