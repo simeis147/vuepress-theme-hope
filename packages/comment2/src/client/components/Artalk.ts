@@ -89,14 +89,22 @@ export default defineComponent({
       watch(
         () => props.identifier,
         async () => {
+          await nextTick();
+          await initArtalk();
+        },
+        { immediate: true, flush: "post" },
+      );
+
+      watch(
+        () => props.identifier,
+        () => {
           try {
             artalk?.destroy();
           } catch (err) {
             // do nothing
           }
-          await initArtalk();
         },
-        { immediate: true },
+        { flush: "pre" },
       );
 
       watch(
