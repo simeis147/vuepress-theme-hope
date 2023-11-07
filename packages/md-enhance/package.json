@@ -125,6 +125,7 @@
     "echarts": "^5.4.3",
     "flowchart.ts": "^1.0.1",
     "katex": "^0.16.9",
+    "kotlin-playground": "^1.29.0",
     "mathjax-full": "^3.2.2",
     "mermaid": "^10.6.1",
     "reveal.js": "^5.0.0",
@@ -150,6 +151,9 @@
       "optional": true
     },
     "katex": {
+      "optional": true
+    },
+    "kotlin-playground": {
       "optional": true
     },
     "mathjax-full": {
