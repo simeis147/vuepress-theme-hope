@@ -1,20 +1,19 @@
-import type { WalineAbort, WalinePageviewCountOptions } from "@waline/client";
+import type { WalineAbort } from "@waline/client";
 
 import type { WalineOptions } from "../shared/index.js";
 
 declare const COMMENT_OPTIONS: WalineOptions;
 
-let pageviewCount: (options: WalinePageviewCountOptions) => WalineAbort;
+export const updatePageview = async (): Promise<WalineAbort | void> => {
+  try {
+    const { pageviewCount } = await import(
+      /* webpackChunkName: "pageview" */ "@waline/client/pageview"
+    );
 
-try {
-  ({ pageviewCount } = await import(
-    /* webpackChunkName: "pageview" */ "@waline/client/pageview"
-  ));
-} catch (err) {
-  // do nothing
-}
+    return pageviewCount({ serverURL: COMMENT_OPTIONS.serverURL });
+  } catch (err) {
+    console.error("@waline/client is not installed!");
 
-export const updatePageview = (): (() => void) =>
-  pageviewCount?.({
-    serverURL: COMMENT_OPTIONS.serverURL,
-  });
+    return;
+  }
+};

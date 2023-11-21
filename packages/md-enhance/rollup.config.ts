@@ -1,7 +1,7 @@
-import { bundle } from "../../scripts/rollup.js";
+import { rollupBundle } from "../../scripts/rollup.js";
 
 export default [
-  ...bundle("node/index", {
+  ...rollupBundle("node/index", {
     external: [
       /^@mdit\/plugin-/,
       "js-yaml",
@@ -10,7 +10,7 @@ export default [
     ],
     dtsExternal: ["vuepress-shared"],
   }),
-  ...bundle(
+  ...rollupBundle(
     {
       base: "client",
       files: [
@@ -21,12 +21,13 @@ export default [
         "components/CodeTabs",
         "components/ECharts",
         "components/FlowChart",
+        "components/MdDemo",
         "components/Mermaid",
         "components/Playground",
         "components/RevealJs",
         "components/Tabs",
-        "components/VPCard",
         "components/VuePlayground",
+        "composables/container",
         "composables/katex",
         "SlidePage",
       ],

@@ -2,7 +2,7 @@
 home: true
 icon: home
 title: 项目主页
-heroImage: /logo.svg
+heroImage: https://theme-hope-assets.vuejs.press/logo.svg
 bgImage: https://theme-hope-assets.vuejs.press/bg/6-light.svg
 bgImageDark: https://theme-hope-assets.vuejs.press/bg/6-dark.svg
 bgImageStyle:
@@ -10,7 +10,8 @@ bgImageStyle:
 heroText: 项目名称
 tagline: 你可以在这里放置或是整个项目的描述。
 actions:
-  - text: 使用指南 💡
+  - text: 使用指南
+    icon: lightbulb
     link: ./demo/
     type: primary
 
@@ -90,15 +91,15 @@ highlights:
         details: 使用改进的语法指定图片大小与颜色模式
         link: https://theme-hope.vuejs.press/zh/guide/markdown/image.html
 
-      - title: 卡片支持
-        icon: square
-        details: 在 Markdown 中展示卡片
-        link: https://theme-hope.vuejs.press/zh/guide/markdown/card.html
+      - title: 组件支持
+        icon: puzzle-piece
+        details: 在 Markdown 中展示组件
+        link: https://theme-hope.vuejs.press/zh/guide/markdown/component.html
 
       - title: 图表支持
         icon: chart-simple
         details: 在 Markdown 中展示图表
-        link: https://theme-hope.vuejs.press/zh/guide/markdown/chart.html
+        link: https://theme-hope.vuejs.press/zh/guide/markdown/chartjs.html
 
       - title: 流程图支持
         icon: route
@@ -133,7 +134,7 @@ highlights:
       - title: 代码案例支持
         icon: laptop-code
         details: 你可以很方便的插入代码案例
-        link: https://theme-hope.vuejs.press/zh/guide/markdown/demo/
+        link: https://theme-hope.vuejs.press/zh/guide/markdown/demo.html
 
       - title: 幻灯片支持
         icon: person-chalkboard

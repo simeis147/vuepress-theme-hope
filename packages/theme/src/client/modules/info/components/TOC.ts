@@ -77,8 +77,8 @@ export default defineComponent({
   },
 
   slots: Object as SlotsType<{
-    before?: () => VNode | VNode[];
-    after?: () => VNode | VNode[];
+    before?: () => VNode[] | VNode | null;
+    after?: () => VNode[] | VNode | null;
   }>,
 
   setup(props, { slots }) {
@@ -153,19 +153,18 @@ export default defineComponent({
         },
       );
 
-      watch(
-        () => route.fullPath,
-        () => updateTocMarker(),
-        { flush: "post", immediate: true },
-      );
+      watch(() => route.fullPath, updateTocMarker, {
+        flush: "post",
+        immediate: true,
+      });
     });
 
     return (): VNode | null => {
       const tocHeaders = props.items.length
         ? renderChildren(props.items, props.headerDepth)
         : page.value.headers
-        ? renderChildren(page.value.headers, props.headerDepth)
-        : null;
+          ? renderChildren(page.value.headers, props.headerDepth)
+          : null;
 
       return tocHeaders
         ? h("div", { class: "toc-place-holder" }, [

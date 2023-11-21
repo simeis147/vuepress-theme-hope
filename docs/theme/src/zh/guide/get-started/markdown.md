@@ -15,9 +15,16 @@ VuePress 主要从 Markdown 文件生成页面。因此，你可以使用它轻�
 
 <!-- more -->
 
-## Markdown 介绍
-
-如果你是一个新手，还不会编写 Markdown，请先阅读 [Markdown 介绍](../../cookbook/markdown/README.md) 和 [Markdown 演示](../../cookbook/markdown/demo.md)。
+```component VPBanner
+title: Markdown 介绍
+content: 如果你是一个新手，还不会编写 Markdown，请先阅读下方板块。
+logo: /assets/image/markdown.svg
+background: var(--bg-2)
+color: var(--banner-text)
+actions:
+  - text: Markdown 教程
+    link: ../../cookbook/markdown/
+```
 
 ## Markdown 配置
 
@@ -224,9 +231,9 @@ npm i -D vuepress-theme-hope
 
 - [查看详情](../markdown/image.md)
 
-#### 卡片
+#### 组件
 
-```card
+```component VPCard
 title: Mr.Hope
 desc: Where there is light, there is hope
 logo: https://mister-hope.com/logo.svg
@@ -234,7 +241,7 @@ link: https://mister-hope.com
 color: rgba(253, 230, 138, 0.15)
 ```
 
-- [查看详情](../markdown/card.md)
+- [查看详情](../markdown/component.md)
 
 #### 图表
 
@@ -270,7 +277,7 @@ color: rgba(253, 230, 138, 0.15)
 
 :::
 
-- [查看详情](../markdown/chart.md)
+- [查看详情](../markdown/chartjs.md)
 
 #### Echarts
 
@@ -377,13 +384,9 @@ span {
 
 #### 样式化
 
-<!-- markdownlint-disable MD033 -->
-
 设置它<span style="color:red">没有</span>任何效果，请<span style="color:red">不要</span>这样使用
 
 - [查看详情](../markdown/stylize.md)
-
-<!-- markdownlint-enable MD033 -->
 
 ### 交互演示
 

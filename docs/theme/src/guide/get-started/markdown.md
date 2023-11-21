@@ -15,9 +15,16 @@ You should create and write Markdown files, so that VuePress can convert them to
 
 <!-- more -->
 
-## Markdown Introduction
-
-If you are a newcomer and don't know how to write Markdown, please read [Markdown Intro](../../cookbook/markdown/README.md) and [Markdown Demo](../../cookbook/markdown/demo.md).
+```component VPBanner
+title: Markdown Introduction
+content: If you are a newcomer and don't know how to write Markdown, please read the following section.
+logo: /assets/image/markdown.svg
+background: var(--bg-2)
+color: var(--banner-text)
+actions:
+  - text: Markdown Tutorial
+    link: ../../cookbook/markdown/
+```
 
 ## Markdown Config
 
@@ -224,9 +231,9 @@ Support setting color scheme and size
 
 - [View Detail](../markdown/image.md)
 
-#### Card
+#### Component
 
-```card
+```component VPCard
 title: Mr.Hope
 desc: Where there is light, there is hope
 logo: https://mister-hope.com/logo.svg
@@ -234,7 +241,7 @@ link: https://mister-hope.com
 color: rgba(253, 230, 138, 0.15)
 ```
 
-- [View Detail](../markdown/card.md)
+- [View Detail](../markdown/component.md)
 
 #### Chart
 
@@ -270,7 +277,7 @@ color: rgba(253, 230, 138, 0.15)
 
 :::
 
-- [View Detail](../markdown/chart.md)
+- [View Detail](../markdown/chartjs.md)
 
 #### Echarts
 

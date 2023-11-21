@@ -9,7 +9,16 @@ tag:
   - 导航栏
 ---
 
-导航栏可能包含你的站点名称、[搜索框](#搜索框)、 [导航栏链接](#导航栏链接)、[多语言支持](https://vuejs.press/zh/guide/i18n.html)、[仓库链接](#git-仓库和编辑链接) 和 [外观弹窗](#外观弹窗)。它们均取决于你的配置。
+导航栏包含:
+
+- 站点名称
+- [搜索框](#搜索框)
+- [导航栏链接](#导航栏链接)
+- [多语言选择菜单](https://vuejs.press/zh/guide/i18n.html)
+- [仓库链接](#git-仓库和编辑链接)
+- [外观弹窗](#外观弹窗)。
+
+它们都是可配置的，你也可以[完全自定义导航栏布局](#布局配置)。
 
 <!-- more -->
 
@@ -25,7 +34,7 @@ tag:
 
 @tab TS
 
-```ts
+```ts {7}
 // .vuepress/config.ts
 import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
@@ -41,20 +50,21 @@ export default defineUserConfig({
 
 ```js
 // .vuepress/config.js
+import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
 
-export default {
+export default defineUserConfig({
   theme: hopeTheme({
     navbar: ["/zh/guide/README.md", "/zh/config/README.md", "/zh/faq.md"],
   }),
-};
+});
 ```
 
 :::
 
 ::: tip
 
-你可以省略 `.md` 扩展名，以 `/` 结尾的路径会被推断为 `/README.md`。
+我们推荐你省略 `.md` 扩展名，以 `/` 结尾的路径会被推断为 `/README.md`。
 
 :::
 
@@ -568,7 +578,7 @@ export default {
 
 主题允许你自定义导航栏布局。 你可以在 `navbarLayout` 选项下的 `start`、`center` 和 `end` 键中添加组件。
 
-除了全局组件名称之外，可用的内置组件如下:
+导航栏包含了下列可以使用的内置组件:
 
 - Brand: 站点品牌
 - Links: 导航栏链接
@@ -577,7 +587,9 @@ export default {
 - Outlook: 外观弹窗
 - Repo: 项目仓库
 
-默认情况下，我们使用以下选项:
+同时，你也可以全局注册自己的组件并使用它们。
+
+我们默认使用以下选项:
 
 ::: code-tabs#language
 

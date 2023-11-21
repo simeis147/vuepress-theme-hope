@@ -86,6 +86,8 @@ export default theme("components", {
         "Share",
         "SiteInfo",
         "StackBlitz",
+        "VPBanner",
+        "VPCard",
         "VidStack",
         "VideoPlayer",
         "XiGua",
@@ -132,6 +134,7 @@ export default theme("components", {
 
     mdEnhance: {
       codetabs: true,
+      demo: true,
       imgMark: true,
       include: true,
     },

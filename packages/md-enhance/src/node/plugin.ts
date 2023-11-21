@@ -44,15 +44,16 @@ import { getLinksCheckStatus, linksCheck } from "./linksCheck.js";
 import { markdownEnhanceLocales } from "./locales.js";
 import {
   CODE_DEMO_DEFAULT_SETTING,
-  card,
   chart,
   codeTabs,
+  component,
   echarts,
   flowchart,
   getTSPlaygroundPreset,
   getUnoPlaygroundPreset,
   getVuePlaygroundPreset,
   hint,
+  mdDemo,
   mermaid,
   normalDemo,
   playground,
@@ -85,7 +86,7 @@ export const mdEnhancePlugin =
         options as MarkdownEnhanceOptions & Record<string, unknown>,
       );
 
-    checkVersion(app, PLUGIN_NAME, "2.0.0-beta.67");
+    checkVersion(app, PLUGIN_NAME, "2.0.0-rc.0");
 
     if (app.env.isDebug) logger.info("Options:", options);
 
@@ -122,7 +123,8 @@ export const mdEnhancePlugin =
     const enableMermaid = getStatus("mermaid", false, "mermaid");
     const enableRevealJs = getStatus("revealJs", false, "reveal.js");
     const enableKatex = getStatus("katex", false, "katex");
-    const enableMathjax = getStatus("mathjax", true, "mathjax-full");
+    const enableMathjax =
+      !options.katex && getStatus("mathjax", true, "mathjax-full");
     const enableVuePlayground = getStatus("vuePlayground", false, "@vue/repl");
 
     const { enabled: enableLinksCheck, isIgnoreLink } = getLinksCheckStatus(
@@ -163,13 +165,12 @@ export const mdEnhancePlugin =
       ...(isPlainObject(options.katex) ? options.katex : {}),
     };
 
-    const mathjaxInstance =
-      options.mathjax === false
-        ? null
-        : createMathjaxInstance({
-            mathFence: options.gfm ?? false,
-            ...(isPlainObject(options.mathjax) ? options.mathjax : {}),
-          });
+    const mathjaxInstance = enableMathjax
+      ? createMathjaxInstance({
+          mathFence: options.gfm ?? false,
+          ...(isPlainObject(options.mathjax) ? options.mathjax : {}),
+        })
+      : null;
 
     const revealJsOptions = isPlainObject(options.revealJs)
       ? options.revealJs
@@ -333,7 +334,7 @@ export const mdEnhancePlugin =
           });
 
         // features
-        if (getStatus("card")) md.use(card);
+        if (getStatus("component")) md.use(component);
         if (getStatus("codetabs")) {
           md.use(codeTabs);
           // TODO: Remove this in v2 stable
@@ -348,6 +349,7 @@ export const mdEnhancePlugin =
         if (enableChart) md.use(chart);
         if (enableEcharts) md.use(echarts);
         if (getStatus("demo")) {
+          md.use(mdDemo);
           md.use(normalDemo);
           md.use(vueDemo);
           md.use(reactDemo);

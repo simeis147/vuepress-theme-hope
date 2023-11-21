@@ -74,13 +74,6 @@ icon: gears
 
 使用的目录组件名称。
 
-### iconComponent
-
-- 类型: `string`
-- 必填: 否
-
-使用的图标组件名称，图标信息会作为 `icon` 属性传入相关组件进行渲染。
-
 ### locales
 
 - 类型: `AutoCatalogLocaleConfig`
@@ -170,13 +163,6 @@ Catalog 的最大层级
 - 默认值: `false`
 
 是否在目录列表中显示索引
-
-### indexType
-
-- 类型: `ul | ol`
-- 默认值: `ul`
-
-索引列表的展示类型，仅显示索引时生效
 
 ### hideHeading
 

@@ -225,7 +225,7 @@
 
   display: block;
 
-  margin: 1.6em 0;
+  margin: 1rem 0;
   padding: 1.5rem;
   border-radius: 0.5rem;
 
@@ -235,10 +235,6 @@
   transition:
     background var(--vp-tt),
     color var(--vp-tt);
-
-  @media print {
-    display: none;
-  }
 
   @media (max-width: hope-config.$mobile) {
     margin-inline: -0.75rem;
@@ -275,8 +271,11 @@
 
     cursor: pointer;
 
-    // a deprecated prefix
-    &::-webkit-details-marker,
+    // compatible with safari
+    &::-webkit-details-marker {
+      display: none;
+    }
+
     &::marker {
       color: transparent;
       font-size: 0;
@@ -292,10 +291,6 @@
 
       width: 1.5rem;
       height: 1.5rem;
-
-      @media print {
-        display: block;
-      }
     }
 
     &::before {

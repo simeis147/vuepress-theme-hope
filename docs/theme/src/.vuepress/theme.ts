@@ -57,6 +57,8 @@ export default theme("theme", {
         "Share",
         "SiteInfo",
         "StackBlitz",
+        "VPBanner",
+        "VPCard",
         "VidStack",
         "VideoPlayer",
         "YouTube",
@@ -114,9 +116,9 @@ export default theme("theme", {
     mdEnhance: {
       align: true,
       attrs: true,
-      card: true,
       chart: true,
       codetabs: true,
+      component: true,
       demo: true,
       echarts: true,
       figure: true,
@@ -126,11 +128,30 @@ export default theme("theme", {
       imgMark: true,
       imgSize: true,
       include: {
+        deep: true,
         resolvePath: (file) => {
-          if (file.startsWith("@echarts"))
+          if (file.startsWith("@components/"))
+            return file.replace(
+              "@components",
+              path.resolve(__dirname, "../../../components/src"),
+            );
+
+          if (file.startsWith("@echarts/"))
             return file.replace(
               "@echarts",
-              path.resolve(__dirname, "../echarts"),
+              path.resolve(__dirname, "../../../md-enhance/src/echarts"),
+            );
+
+          if (file.startsWith("@md-enhance/"))
+            return file.replace(
+              "@md-enhance",
+              path.resolve(__dirname, "../../../md-enhance/src"),
+            );
+
+          if (file.startsWith("@pwa/"))
+            return file.replace(
+              "@pwa",
+              path.resolve(__dirname, "../../../pwa2/src"),
             );
 
           return file;

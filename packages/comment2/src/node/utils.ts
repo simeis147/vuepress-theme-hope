@@ -26,13 +26,3 @@ export const getPackage = (provider?: string): string | null => {
       return null;
   }
 };
-
-export const isInstalled = (pkg: string): boolean => {
-  try {
-    require.resolve(pkg);
-
-    return true;
-  } catch (error) {
-    return false;
-  }
-};

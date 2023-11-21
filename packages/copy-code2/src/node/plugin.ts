@@ -15,7 +15,7 @@ import { CLIENT_FOLDER, PLUGIN_NAME, logger } from "./utils.js";
 export const copyCodePlugin =
   (options: CopyCodeOptions = {}): PluginFunction =>
   (app) => {
-    checkVersion(app, PLUGIN_NAME, "2.0.0-beta.67");
+    checkVersion(app, PLUGIN_NAME, "2.0.0-rc.0");
 
     if (app.env.isDebug) logger.info("Options:", options);
 
@@ -40,8 +40,8 @@ export const copyCodePlugin =
         COPY_CODE_SELECTOR: isArray(options.selector)
           ? options.selector
           : isString(options.selector)
-          ? [options.selector]
-          : ['.theme-default-content div[class*="language-"] pre'],
+            ? [options.selector]
+            : ['.theme-default-content div[class*="language-"] pre'],
       }),
 
       extendsBundlerOptions: (bundlerOptions: unknown, app): void => {

@@ -38,7 +38,7 @@ dir:
 
 - [标记](mark.md)
 
-- [图表](chart.md)
+- [图表](chartjs.md)
 
 - [Echarts](echarts.md)
 
@@ -59,6 +59,8 @@ dir:
 - [交互演示](playground.md)
 
 - [Vue 交互演示](vue-playground.md)
+
+- [组件语法](component.md)
 
 - [组件](components.md)
 
