@@ -1,9 +1,9 @@
 import type { PageHeader } from "@vuepress/client";
-import { usePageData } from "@vuepress/client";
+import { VPLink, usePageData } from "@vuepress/client";
 import type { PropType, SlotsType, VNode } from "vue";
 import { defineComponent, h, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute } from "vue-router";
-import { VPLink, isActiveLink } from "vuepress-shared/client";
+import { isActiveLink } from "vuepress-shared/client";
 
 import PrintButton from "@theme-hope/modules/info/components/PrintButton";
 import { useMetaLocale } from "@theme-hope/modules/info/composables/index";
