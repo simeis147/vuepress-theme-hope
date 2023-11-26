@@ -48,7 +48,6 @@ export default theme("theme", {
     components: {
       components: [
         "ArtPlayer",
-        "AudioPlayer",
         "Badge",
         "BiliBili",
         "CodePen",
@@ -57,9 +56,9 @@ export default theme("theme", {
         "Share",
         "SiteInfo",
         "StackBlitz",
+        "VPBanner",
+        "VPCard",
         "VidStack",
-        "VideoPlayer",
-        "YouTube",
       ],
 
       componentOptions: {
@@ -114,9 +113,9 @@ export default theme("theme", {
     mdEnhance: {
       align: true,
       attrs: true,
-      card: true,
       chart: true,
       codetabs: true,
+      component: true,
       demo: true,
       echarts: true,
       figure: true,

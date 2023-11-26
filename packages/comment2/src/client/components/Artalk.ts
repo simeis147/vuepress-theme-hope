@@ -38,7 +38,7 @@ export default defineComponent({
     darkmode: Boolean,
   },
 
-  setup: (props) => {
+  setup(props) {
     const artalkOptions = useArtalkOptions();
     const page = usePageData();
     const site = useSiteData();
@@ -88,15 +88,23 @@ export default defineComponent({
     onMounted(() => {
       watch(
         () => props.identifier,
-        async () => {
+        () => {
           try {
             artalk?.destroy();
           } catch (err) {
             // do nothing
           }
+        },
+        { flush: "pre" },
+      );
+
+      watch(
+        () => props.identifier,
+        async () => {
+          await nextTick();
           await initArtalk();
         },
-        { immediate: true },
+        { flush: "post", immediate: true },
       );
 
       watch(

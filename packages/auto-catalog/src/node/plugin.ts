@@ -7,7 +7,7 @@ import {
 } from "vuepress-shared/node";
 
 import { generateCatalog, injectCatalogInformation } from "./autoCatalog.js";
-import { convertOptions } from "./compact/index.js";
+import { convertOptions } from "./compact.js";
 import { locales as defaultLocales } from "./locales.js";
 import type { AutoCatalogOptions } from "./options.js";
 import { CLIENT_FOLDER, PLUGIN_NAME, logger } from "./utils.js";
@@ -18,7 +18,7 @@ export const autoCatalogPlugin =
     if (legacy)
       convertOptions(options as AutoCatalogOptions & Record<string, unknown>);
 
-    checkVersion(app, PLUGIN_NAME, "2.0.0-beta.67");
+    checkVersion(app, PLUGIN_NAME, "2.0.0-rc.0");
 
     if (app.env.isDebug) logger.info("Options:", options);
 

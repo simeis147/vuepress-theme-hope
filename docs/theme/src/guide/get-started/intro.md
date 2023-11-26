@@ -58,11 +58,11 @@ The theme provides a lot of extended syntax support for Markdown, allowing you t
 
 - If you are a literature lover and want to place some essays, the theme provides [Custom Alignment](../markdown/align.md) and [footnote](../markdown/footnote.md).
 
-- To store some knowledge notes, the theme provides [Custom container](../markdown/container.md), [Mark](../markdown/mark.md), [Badge](../markdown/components.md), [Task list](../markdown/tasklist.md) and [Tex](../markdown/tex.md) support.
+- To store some knowledge notes, the theme provides [Custom container](../markdown/hint.md), [Mark](../markdown/mark.md), [Badge](../markdown/components.md), [Task list](../markdown/tasklist.md) and [Tex](../markdown/tex.md) support.
 
 - If you are a programmer and need to show a lot of codes and demos, this theme provides light and dark themes for code blocks, [code tabs](../markdown/code-tabs.md) and the ["one-click copy" button](../feature/copy-code.md). At the same time, we also provide the [Code Demo](../markdown/demo.md), [Playground](../markdown/playground.md) and [Vue Playground](../markdown/vue-playground.md) functions, which is convenient for you to show your own Vue, React components or other demos and provide playground for visitors.
 
-- If you are providing product documentation and presentation, the theme provides [tabs](../markdown/tabs.md), [slide](../markdown/revealjs.md), [chart](../markdown/chart.md), [echarts](../markdown/echarts.md), [flowchart](../markdown/flowchart.md), [mermaid diagram](../markdown/mermaid.md) functions.
+- If you are providing product documentation and presentation, the theme provides [tabs](../markdown/tabs.md), [slide](../markdown/revealjs.md), [chart](../markdown/chartjs.md), [echarts](../markdown/echarts.md), [flowchart](../markdown/flowchart.md), [mermaid diagram](../markdown/mermaid.md) functions.
 
 - To reorganize your content, the theme provides [File Include](../markdown/include.md) function.
 
@@ -98,8 +98,6 @@ In short, anyone can enjoy the convenience of Markdown's enhanced syntax.
 
 - [Brand-new Homepage with features and highlights](../layout/home.md)
 
-- [Catalog Page auto-generation](../layout/catalog.md)
-
 - More:
 
   Adds [breadcrumb](../layout/breadcrumb.md), [toc](../layout/page.md#header-list) and [footer](../layout/footer.md) support.
@@ -121,6 +119,8 @@ In short, anyone can enjoy the convenience of Markdown's enhanced syntax.
 ### New Features
 
 - [Picture Preview](../feature/photo-swipe.md) which supports zooming, dragging, slides browsing, sharing and downloading
+
+- [Catalog Page auto-generation](../feature/catalog.md)
 
 - Search feature
 

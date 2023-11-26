@@ -18,7 +18,7 @@ dir:
 
 ## 新语法
 
-- [自定义容器](container.md)
+- [提示容器](hint.md)
 
 - [选项卡](tabs.md)
 
@@ -30,6 +30,8 @@ dir:
 
 - [图片增强](image.md)
 
+- [GFM 警告](alert.md)
+
 - [自定义对齐](align.md)
 
 - [自定义属性](attrs.md)
@@ -38,7 +40,7 @@ dir:
 
 - [标记](mark.md)
 
-- [图表](chart.md)
+- [图表](chartjs.md)
 
 - [Echarts](echarts.md)
 
@@ -59,6 +61,8 @@ dir:
 - [交互演示](playground.md)
 
 - [Vue 交互演示](vue-playground.md)
+
+- [组件语法](component.md)
 
 - [组件](components.md)
 

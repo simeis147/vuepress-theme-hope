@@ -35,24 +35,28 @@ import {
 
 import {
   convertOptions,
+  legacyCard,
   legacyCodeDemo,
   legacyCodeGroup,
   legacyFlowchart,
+  legacyHint,
   legacyInclude,
 } from "./compact/index.js";
 import { getLinksCheckStatus, linksCheck } from "./linksCheck.js";
 import { markdownEnhanceLocales } from "./locales.js";
 import {
   CODE_DEMO_DEFAULT_SETTING,
-  card,
+  alert,
   chart,
   codeTabs,
+  component,
   echarts,
   flowchart,
   getTSPlaygroundPreset,
   getUnoPlaygroundPreset,
   getVuePlaygroundPreset,
   hint,
+  markmap,
   mdDemo,
   mermaid,
   normalDemo,
@@ -86,24 +90,22 @@ export const mdEnhancePlugin =
         options as MarkdownEnhanceOptions & Record<string, unknown>,
       );
 
-    checkVersion(app, PLUGIN_NAME, "2.0.0-beta.67");
+    checkVersion(app, PLUGIN_NAME, "2.0.0-rc.0");
 
     if (app.env.isDebug) logger.info("Options:", options);
 
     const getStatus = (
       key: keyof MarkdownEnhanceOptions,
       gfm = false,
-      pkg = "",
+      pkgs: string[] = [],
     ): boolean => {
       const enabled =
         key in options ? Boolean(options[key]) : (gfm && options.gfm) || false;
-
-      return (
-        enabled &&
-        (pkg
-          ? isInstalled(pkg, Boolean(options[key]) || (gfm && options.gfm))
-          : true)
+      const pkgInstalled = pkgs.every((pkg) =>
+        isInstalled(pkg, Boolean(options[key])),
       );
+
+      return enabled && pkgInstalled;
     };
 
     const locales = getLocales({
@@ -113,19 +115,25 @@ export const mdEnhancePlugin =
       config: options.locales,
     });
 
-    const enableChart = getStatus("chart", false, "chart.js");
-    const enableEcharts = getStatus("echarts", false, "echarts");
-    const enableFlowchart = getStatus("flowchart", false, "flowchart.ts");
+    const enableChart = getStatus("chart", false, ["chart.js"]);
+    const enableEcharts = getStatus("echarts", false, ["echarts"]);
+    const enableFlowchart = getStatus("flowchart", false, ["flowchart.ts"]);
     const enableFootnote = getStatus("footnote", true);
     const enableImgMark = getStatus("imgMark", true);
     const enableInclude = getStatus("include");
     const enableTasklist = getStatus("tasklist", true);
-    const enableMermaid = getStatus("mermaid", false, "mermaid");
-    const enableRevealJs = getStatus("revealJs", false, "reveal.js");
-    const enableKatex = getStatus("katex", false, "katex");
+    const enableMarkmap = getStatus("markmap", false, [
+      "markmap-lib",
+      "markmap-view",
+    ]);
+    const enableMermaid = getStatus("mermaid", false, ["mermaid"]);
+    const enableRevealJs = getStatus("revealJs", false, ["reveal.js"]);
+    const enableKatex = getStatus("katex", false, ["katex"]);
     const enableMathjax =
-      !options.katex && getStatus("mathjax", true, "mathjax-full");
-    const enableVuePlayground = getStatus("vuePlayground", false, "@vue/repl");
+      !options.katex && getStatus("mathjax", true, ["mathjax-full"]);
+    const enableVuePlayground = getStatus("vuePlayground", false, [
+      "@vue/repl",
+    ]);
 
     const { enabled: enableLinksCheck, isIgnoreLink } = getLinksCheckStatus(
       app,
@@ -234,6 +242,17 @@ export const mdEnhancePlugin =
           addViteSsrExternal(bundlerOptions, app, "flowchart.ts");
         }
 
+        if (enableMarkmap) {
+          addViteOptimizeDepsInclude(bundlerOptions, app, [
+            "markmap-lib",
+            "markmap-view",
+          ]);
+          addViteSsrExternal(bundlerOptions, app, [
+            "markmap-lib",
+            "markmap-view",
+          ]);
+        }
+
         if (enableMermaid) {
           addViteOptimizeDepsInclude(bundlerOptions, app, "mermaid");
           addViteSsrExternal(bundlerOptions, app, "mermaid");
@@ -265,11 +284,14 @@ export const mdEnhancePlugin =
 
       extendsMarkdown: (md): void => {
         // syntax
+        if (getStatus("alert", true)) md.use(alert, locales);
         if (getStatus("attrs"))
           md.use(attrs, isPlainObject(options.attrs) ? options.attrs : {});
         if (getStatus("align")) md.use(align);
         if (getStatus("breaks", true)) md.options.breaks = true;
-        if (getStatus("container")) md.use(hint, locales);
+        // TODO: Remove this in v2 stable
+        // @ts-expect-error
+        if (getStatus("card") && legacy) md.use(legacyCard);
         if (getStatus("imgLazyload")) md.use(imgLazyload);
         if (getStatus("figure")) md.use(figure);
         if (enableImgMark)
@@ -277,7 +299,10 @@ export const mdEnhancePlugin =
             imgMark,
             isPlainObject(options.imgMark) ? options.imgMark : {},
           );
-
+        if (getStatus("hint")) {
+          md.use(hint, locales);
+          if (legacy) md.use(legacyHint, locales);
+        }
         if (getStatus("imgSize")) md.use(imgSize);
         if (getStatus("linkify", true)) md.options.linkify = true;
         if (getStatus("obsidianImgSize")) md.use(obsidianImageSize);
@@ -334,7 +359,7 @@ export const mdEnhancePlugin =
           });
 
         // features
-        if (getStatus("card")) md.use(card);
+        if (getStatus("component")) md.use(component);
         if (getStatus("codetabs")) {
           md.use(codeTabs);
           // TODO: Remove this in v2 stable
@@ -356,6 +381,7 @@ export const mdEnhancePlugin =
           // TODO: Remove this in v2 stable
           if (legacy) md.use(legacyCodeDemo);
         }
+        if (enableMarkmap) md.use(markmap);
         if (enableMermaid) md.use(mermaid);
         if (enableRevealJs) md.use(revealJs);
         if (isPlainObject(options.playground)) {

@@ -42,7 +42,7 @@ For these extensions, please read [Markdown extensions in VuePress](https://them
 
 By using [`vuepress-plugin-md-enhance`][md-enhance], the theme extends more Markdown syntax and provides richer writing functions.
 
-#### Custom Container
+#### Hint box
 
 ::: v-pre
 
@@ -52,7 +52,7 @@ Safely use {{ variable }} in Markdown.
 
 ::: info Custom Title
 
-A custom information container with `code`, [link](#custom-container).
+A custom information container with `code`, [link](#hint-box).
 
 ```js
 const a = 1;
@@ -72,9 +72,9 @@ A custom warning container
 
 :::
 
-::: danger Custom Title
+::: caution Custom Title
 
-A custom danger container
+A custom caution container
 
 :::
 
@@ -84,7 +84,7 @@ A custom details container
 
 :::
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/container.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/hint.html)
 
 #### Tabs
 
@@ -187,9 +187,9 @@ Support setting color scheme and size
 
 - [View Detail](https://theme-hope.vuejs.press/guide/markdown/image.html)
 
-#### Card
+#### Component
 
-```card
+```component VPCard
 title: Mr.Hope
 desc: Where there is light, there is hope
 logo: https://mister-hope.com/logo.svg
@@ -197,7 +197,7 @@ link: https://mister-hope.com
 color: rgba(253, 230, 138, 0.15)
 ```
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/card.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/component.html)
 
 #### Include files
 
@@ -288,7 +288,7 @@ speak(msg);
 
 :::
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/chart.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/chartjs.html)
 
 #### Echarts
 

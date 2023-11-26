@@ -8,7 +8,7 @@ tag:
   - Slides
 ---
 
-<!-- @include: @md-enhance/guide/revealjs/README.md#before -->
+<!-- @include: @md-enhance/guide/content/revealjs/README.md#before -->
 
 ::: code-tabs#language
 
@@ -49,9 +49,9 @@ export default {
 
 :::
 
-<!-- @include: @md-enhance/guide/revealjs/README.md#options -->
+<!-- @include: @md-enhance/guide/content/revealjs/README.md#options -->
 
-For the appearance of each theme, see <ProjectLink name="md-enhance" path="/guide/revealjs/themes.html">Themes demo</ProjectLink>.
+For the appearance of each theme, see <ProjectLink name="md-enhance" path="/guide/content/revealjs/themes.html">Themes demo</ProjectLink>.
 
 ## Demo
 
@@ -92,8 +92,8 @@ $$
 
 ::: info
 
-For detailed demo, please see <ProjectLink name="md-enhance" path="/guide/revealjs/demo.html">Presentation demo</ProjectLink>
+For detailed demo, please see <ProjectLink name="md-enhance" path="/guide/content/revealjs/demo.html">Presentation demo</ProjectLink>
 
 :::
 
-<!-- @include: @md-enhance/guide/revealjs/README.md#customize -->
+<!-- @include: @md-enhance/guide/content/revealjs/README.md#customize -->

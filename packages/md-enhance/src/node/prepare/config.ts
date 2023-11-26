@@ -23,14 +23,24 @@ export const prepareConfigFile = async (
       ? Boolean(options[key])
       : (gfm && "gfm" in options && options.gfm) || false;
 
-  if (getStatus("card")) {
-    imports.add(`import VPCard from "${CLIENT_FOLDER}components/VPCard.js";`);
-    enhances.add(`app.component("VPCard", VPCard)`);
-  }
-
   if (getStatus("chart")) {
     imports.add(`import ChartJS from "${CLIENT_FOLDER}components/ChartJS.js";`);
     enhances.add(`app.component("ChartJS", ChartJS)`);
+  }
+
+  // TODO: Remove this in v2 stable
+  // @ts-expect-error
+  if (getStatus("card" && legacy)) {
+    imports.add(
+      `import { hasGlobalComponent } from "${getRealPath(
+        "vuepress-shared/client",
+        url,
+      )}";`,
+    );
+    imports.add(`import { VPCard } from "${CLIENT_FOLDER}compact/index.js";`);
+    enhances.add(
+      `if(!hasGlobalComponent("VPCard", app)) app.component("VPCard", VPCard);`,
+    );
   }
 
   if (getStatus("codetabs")) {
@@ -59,12 +69,12 @@ export const prepareConfigFile = async (
     }
   }
 
-  if (getStatus("container")) {
+  if (getStatus("hint")) {
     imports.add(
-      `import { useContainer } from "${CLIENT_FOLDER}composables/container.js";`,
+      `import { useHint } from "${CLIENT_FOLDER}composables/hint.js";`,
     );
-    imports.add(`import "${CLIENT_FOLDER}styles/container/index.scss";`);
-    setups.add("useContainer();");
+    imports.add(`import "${CLIENT_FOLDER}styles/hint/index.scss";`);
+    setups.add("useHint();");
   }
 
   if (getStatus("demo")) {
@@ -78,7 +88,11 @@ export const prepareConfigFile = async (
 
   if (getStatus("echarts")) {
     imports.add(`import ECharts from "${CLIENT_FOLDER}components/ECharts.js";`);
+    imports.add(
+      `import { injectEchartsConfig } from "${CLIENT_FOLDER}/index.js";`,
+    );
     enhances.add(`app.component("ECharts", ECharts);`);
+    enhances.add(`injectEchartsConfig(app);`);
   }
 
   if (getStatus("figure", true))
@@ -97,6 +111,11 @@ export const prepareConfigFile = async (
 
   if (getStatus("imgMark", true))
     imports.add(`import "${CLIENT_FOLDER}styles/image-mark.scss"`);
+
+  if (getStatus("markmap")) {
+    imports.add(`import MarkMap from "${CLIENT_FOLDER}components/MarkMap.js";`);
+    enhances.add(`app.component("MarkMap", MarkMap);`);
+  }
 
   if (getStatus("mermaid")) {
     imports.add(`import Mermaid from "${CLIENT_FOLDER}components/Mermaid.js";`);
