@@ -470,13 +470,13 @@ importers:
         version: 1.29.0
       markmap-lib:
         specifier: 0.15.5-alpha.1
-        version: 0.15.5-alpha.1(markmap-common@0.15.3)
+        version: 0.15.5-alpha.1(markmap-common@0.15.5)
       markmap-toolbar:
         specifier: 0.15.5-alpha.1
-        version: 0.15.5-alpha.1(markmap-common@0.15.3)
+        version: 0.15.5-alpha.1(markmap-common@0.15.5)
       markmap-view:
         specifier: 0.15.5-alpha.1
-        version: 0.15.5-alpha.1(markmap-common@0.15.3)
+        version: 0.15.5-alpha.1(markmap-common@0.15.5)
       mathjax-full:
         specifier: 3.2.2
         version: 3.2.2
@@ -1927,13 +1927,13 @@ importers:
         version: 13.0.2
       markmap-lib:
         specifier: ^0.15.5-alpha.1
-        version: 0.15.5-alpha.1(markmap-common@0.15.3)
+        version: 0.15.5-alpha.1(markmap-common@0.15.5)
       markmap-toolbar:
         specifier: ^0.15.5-alpha.1
-        version: 0.15.5-alpha.1(markmap-common@0.15.3)
+        version: 0.15.5-alpha.1(markmap-common@0.15.5)
       markmap-view:
         specifier: ^0.15.5-alpha.1
-        version: 0.15.5-alpha.1(markmap-common@0.15.3)
+        version: 0.15.5-alpha.1(markmap-common@0.15.5)
       mathjax-full:
         specifier: ^3.2.2
         version: 3.2.2
@@ -11884,14 +11884,14 @@ packages:
     engines: {node: '>= 16'}
     hasBin: true
 
-  /markmap-common@0.15.3:
-    resolution: {integrity: sha512-a40FfdzFEKoyIhd5KDsV6FfkM55WWi2spRq/cUCsOZd8e4PAHMc9auCEjdxTWRiS2EGzET9sPpvyAmPSTva+/w==}
+  /markmap-common@0.15.5:
+    resolution: {integrity: sha512-ohgIagYplBRo85mWRA1Z28Q4yoAa1PWg64embE1T7uC7MSz6Qem2DGKstxXW9muuYpR98HgEV7dqT7E/sgM5cA==}
     dependencies:
       '@babel/runtime': 7.23.4
       '@gera2ld/jsx-dom': 2.2.2
       npm2url: 0.2.1
 
-  /markmap-lib@0.15.5-alpha.1(markmap-common@0.15.3):
+  /markmap-lib@0.15.5-alpha.1(markmap-common@0.15.5):
     resolution: {integrity: sha512-K6Lek0PILVutaRFXkFXhsEI99reWnMfPClpn+a7ZJSr5Ovbf9ODFVdGHGaIO/ctEQ6A3UVaTwBtz5efxw+dxWg==}
     peerDependencies:
       markmap-common: '*'
@@ -11900,21 +11900,21 @@ packages:
       highlight.js: 11.9.0
       js-yaml: 4.1.0
       katex: 0.16.9
-      markmap-common: 0.15.3
+      markmap-common: 0.15.5
       prismjs: 1.29.0
       remarkable: 2.0.1
       remarkable-katex: 1.2.1
 
-  /markmap-toolbar@0.15.5-alpha.1(markmap-common@0.15.3):
+  /markmap-toolbar@0.15.5-alpha.1(markmap-common@0.15.5):
     resolution: {integrity: sha512-sG6IncOEDU4xSC2E4mRUBkDzxkfmsNAw2NfHn3VHnFNZ7Ar4q8gEiojgoO2BJtqtckub7h+yv3HorkPRFlCY8g==}
     peerDependencies:
       markmap-common: '*'
     dependencies:
       '@babel/runtime': 7.23.4
       '@gera2ld/jsx-dom': 2.2.2
-      markmap-common: 0.15.3
+      markmap-common: 0.15.5
 
-  /markmap-view@0.15.5-alpha.1(markmap-common@0.15.3):
+  /markmap-view@0.15.5-alpha.1(markmap-common@0.15.5):
     resolution: {integrity: sha512-6mTNgoFMzYpRV9Yb8xDkNUoAu8VbsrXnNdpjYajGwIZIJGLvS90ekusxGAt+pYsW95/9MYWtOvwVDNOBtY2Dbg==}
     peerDependencies:
       markmap-common: '*'
@@ -11924,7 +11924,7 @@ packages:
       '@types/d3': 7.4.3
       d3: 7.8.5
       d3-flextree: 2.1.2
-      markmap-common: 0.15.3
+      markmap-common: 0.15.5
 
   /matchdep@2.0.0:
     resolution: {integrity: sha512-LFgVbaHIHMqCRuCZyfCtUOq9/Lnzhi7Z0KFUE2fhD54+JN2jLh3hC02RLkqauJ3U4soU6H1J3tfj/Byk7GoEjA==}
