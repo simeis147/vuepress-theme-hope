@@ -469,8 +469,8 @@ importers:
         specifier: 1.29.0
         version: 1.29.0
       markmap-lib:
-        specifier: 0.15.5-alpha.1
-        version: 0.15.5-alpha.1(markmap-common@0.15.3)
+        specifier: 0.15.5
+        version: 0.15.5(markmap-common@0.15.3)
       markmap-toolbar:
         specifier: 0.15.5-alpha.1
         version: 0.15.5-alpha.1(markmap-common@0.15.3)
@@ -11297,6 +11297,7 @@ packages:
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    requiresBuild: true
 
   /js-yaml@3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
@@ -11891,6 +11892,21 @@ packages:
       '@gera2ld/jsx-dom': 2.2.2
       npm2url: 0.2.1
 
+  /markmap-lib@0.15.5(markmap-common@0.15.3):
+    resolution: {integrity: sha512-YXL199WUceWtErQdBUNaoV2wXe6gf0ZTVZCH3LnoQ986baVWdcUq4slCClnZCGqBdCnknJ2POZnxXeWFS/zdkA==}
+    peerDependencies:
+      markmap-common: '*'
+    dependencies:
+      '@babel/runtime': 7.23.4
+      highlight.js: 11.9.0
+      js-yaml: 4.1.0
+      katex: 0.16.9
+      markmap-common: 0.15.3
+      prismjs: 1.29.0
+      remarkable: 2.0.1
+      remarkable-katex: 1.2.1
+    dev: true
+
   /markmap-lib@0.15.5-alpha.1(markmap-common@0.15.3):
     resolution: {integrity: sha512-K6Lek0PILVutaRFXkFXhsEI99reWnMfPClpn+a7ZJSr5Ovbf9ODFVdGHGaIO/ctEQ6A3UVaTwBtz5efxw+dxWg==}
     peerDependencies:
@@ -11904,6 +11920,7 @@ packages:
       prismjs: 1.29.0
       remarkable: 2.0.1
       remarkable-katex: 1.2.1
+    dev: false
 
   /markmap-toolbar@0.15.5-alpha.1(markmap-common@0.15.3):
     resolution: {integrity: sha512-sG6IncOEDU4xSC2E4mRUBkDzxkfmsNAw2NfHn3VHnFNZ7Ar4q8gEiojgoO2BJtqtckub7h+yv3HorkPRFlCY8g==}
